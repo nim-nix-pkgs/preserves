@@ -11,7 +11,7 @@
   inputs.src-preserves-v3_2_0.owner = "~ehmry";
   inputs.src-preserves-v3_2_0.ref   = "refs/tags/v3.2.0";
   inputs.src-preserves-v3_2_0.repo  = "preserves-nim";
-  inputs.src-preserves-v3_2_0.type  = "other";
+  inputs.src-preserves-v3_2_0.type  = "sourcehut";
   
   inputs."compiler".owner = "nim-nix-pkgs";
   inputs."compiler".ref   = "master";
