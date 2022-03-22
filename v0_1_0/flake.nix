@@ -8,8 +8,8 @@
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
   inputs.src-preserves-v0_1_0.flake = false;
+  inputs.src-preserves-v0_1_0.ref   = "refs/tags/v0.1.0";
   inputs.src-preserves-v0_1_0.owner = "~ehmry";
-  inputs.src-preserves-v0_1_0.ref   = "v0_1_0";
   inputs.src-preserves-v0_1_0.repo  = "preserves-nim";
   inputs.src-preserves-v0_1_0.type  = "sourcehut";
   
