@@ -7,11 +7,11 @@
   inputs.flakeNimbleLib.type  = "github";
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
-  inputs.src-preserves-v3_0_1.flake = false;
-  inputs.src-preserves-v3_0_1.owner = "~ehmry";
-  inputs.src-preserves-v3_0_1.ref   = "v3_0_1";
-  inputs.src-preserves-v3_0_1.repo  = "preserves-nim";
-  inputs.src-preserves-v3_0_1.type  = "sourcehut";
+  inputs.src-preserves-trunk.flake = false;
+  inputs.src-preserves-trunk.owner = "~ehmry";
+  inputs.src-preserves-trunk.ref   = "trunk";
+  inputs.src-preserves-trunk.repo  = "preserves-nim";
+  inputs.src-preserves-trunk.type  = "sourcehut";
   
   inputs."compiler".owner = "nim-nix-pkgs";
   inputs."compiler".ref   = "master";
@@ -32,10 +32,10 @@
   outputs = { self, nixpkgs, flakeNimbleLib, ...}@deps:
   let 
     lib  = flakeNimbleLib.lib;
-    args = ["self" "nixpkgs" "flakeNimbleLib" "src-preserves-v3_0_1"];
+    args = ["self" "nixpkgs" "flakeNimbleLib" "src-preserves-trunk"];
   in lib.mkRefOutput {
     inherit self nixpkgs ;
-    src  = deps."src-preserves-v3_0_1";
+    src  = deps."src-preserves-trunk";
     deps = builtins.removeAttrs deps args;
     meta = builtins.fromJSON (builtins.readFile ./meta.json);
   };
