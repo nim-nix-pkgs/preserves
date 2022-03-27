@@ -11,6 +11,7 @@
   inputs.src-preserves-v0_1_0.ref   = "v0.1.0";
   inputs.src-preserves-v0_1_0.owner = "~ehmry";
   inputs.src-preserves-v0_1_0.repo  = "preserves-nim";
+  inputs.src-preserves-v0_1_0.dir   = "";
   inputs.src-preserves-v0_1_0.type  = "sourcehut";
   
   inputs."bigints".owner = "nim-nix-pkgs";
