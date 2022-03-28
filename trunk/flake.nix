@@ -11,7 +11,6 @@
   inputs.src-preserves-trunk.ref   = "trunk";
   inputs.src-preserves-trunk.owner = "~ehmry";
   inputs.src-preserves-trunk.repo  = "preserves-nim";
-  inputs.src-preserves-trunk.dir   = "";
   inputs.src-preserves-trunk.type  = "sourcehut";
   
   inputs."compiler".owner = "nim-nix-pkgs";
