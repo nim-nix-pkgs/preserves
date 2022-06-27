@@ -93,7 +93,7 @@
         "flakeNimbleLib": "flakeNimbleLib",
         "nixpkgs": "nixpkgs",
         "npeg": "npeg",
-        "src-preserves-trunk": "src-preserves-trunk"
+        "src-preserves-20220625": "src-preserves-20220625"
       }
     },
     "src-compiler-v1_6_6": {
@@ -130,7 +130,7 @@
         "type": "github"
       }
     },
-    "src-preserves-trunk": {
+    "src-preserves-20220625": {
       "flake": false,
       "locked": {
         "lastModified": 1656191982,
@@ -142,7 +142,7 @@
       },
       "original": {
         "owner": "~ehmry",
-        "ref": "trunk",
+        "ref": "20220625",
         "repo": "preserves-nim",
         "type": "sourcehut"
       }

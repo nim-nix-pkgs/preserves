@@ -93,7 +93,7 @@
         "flakeNimbleLib": "flakeNimbleLib",
         "nixpkgs": "nixpkgs",
         "npeg": "npeg",
-        "src-preserves-trunk": "src-preserves-trunk"
+        "src-preserves-v3_1_0": "src-preserves-v3_1_0"
       }
     },
     "src-compiler-v1_6_6": {
@@ -130,19 +130,19 @@
         "type": "github"
       }
     },
-    "src-preserves-trunk": {
+    "src-preserves-v3_1_0": {
       "flake": false,
       "locked": {
-        "lastModified": 1656191982,
-        "narHash": "sha256-ZNgBlIOKyWD0R5wZvGb/0K5tUpz5q5QpET4Qa/kxhkA=",
+        "lastModified": 1645370629,
+        "narHash": "sha256-QK+zusGaKYVhqeLs3L3pPUXvocrGsne5Wt1alRB7AmU=",
         "owner": "~ehmry",
         "repo": "preserves-nim",
-        "rev": "cc0472da3dc4a736fb1461dd3de20007f11bdb43",
+        "rev": "3924e48deb35122f4d633b7842b4f06b8333313c",
         "type": "sourcehut"
       },
       "original": {
         "owner": "~ehmry",
-        "ref": "trunk",
+        "ref": "v3.1.0",
         "repo": "preserves-nim",
         "type": "sourcehut"
       }
