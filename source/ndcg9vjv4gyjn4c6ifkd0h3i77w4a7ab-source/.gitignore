@@ -1,9 +1,0 @@
-tests/test_integers
-tests/test_parser
-tests/test_rfc8259
-tests/test_schemas
-preserves_encode
-preserves_decode
-preserves_from_json
-preserves_to_json
-preserves_schema_nim
