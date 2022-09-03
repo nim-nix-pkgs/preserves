@@ -1,0 +1,92 @@
+@<EmacsMode "-*- preserves -*-">
+
+; TODO: some kind of constants
+; TODO: rename "version" to "schema-version" ?
+
+version 1 .
+
+Bundle = <bundle @modules Modules>.
+Modules = { ModulePath: Schema ...:... }.
+
+Schema = <schema {
+  version: Version
+  embeddedType: EmbeddedTypeName
+  definitions: Definitions
+}>.
+
+; version 1 .
+Version = 1 .
+
+EmbeddedTypeName = Ref / #f.
+
+Definitions = { symbol: Definition ...:... }.
+
+Definition =
+  ; Pattern / Pattern / ...
+  / <or [@pattern0 NamedAlternative @pattern1 NamedAlternative @patternN NamedAlternative ...]>
+
+  ; Pattern & Pattern & ...
+  / <and [@pattern0 NamedPattern @pattern1 NamedPattern @patternN NamedPattern ...]>
+
+  ; Pattern
+  / Pattern
+.
+
+Pattern = SimplePattern / CompoundPattern .
+
+SimplePattern =
+  ; any
+  / =any
+
+  ; special builtins: bool, float, double, int, string, bytes, symbol
+  / <atom @atomKind AtomKind>
+
+  ; matches an embedded value in the input: #!p
+  / <embedded @interface SimplePattern>
+
+  ; =symbol, <<lit> any>, or plain non-symbol atom
+  / <lit @value any>
+
+  ; [p ...] ----> <seqof <ref p>>; see also tuplePrefix below.
+  / <seqof @pattern SimplePattern>
+
+  ; #{p} ----> <setof <ref p>>
+  / <setof @pattern SimplePattern>
+
+  ; {k: v, ...:...} ----> <dictof <ref k> <ref v>>
+  / <dictof @key SimplePattern @value SimplePattern>
+
+  ; symbol, symbol.symbol, symbol.symbol.symbol, ...
+  / Ref
+.
+
+CompoundPattern =
+  ; <label a b c> ----> <rec <lit label> <tuple [<ref a> <ref b> <ref c>]>>
+  ; except for record labels
+  ; <<rec> x y> ---> <rec <ref x> <ref y>>
+  / <rec @label NamedPattern @fields NamedPattern>
+
+  ; [a b c] ----> <tuple [<ref a> <ref b> <ref c>]>
+  / <tuple @patterns [NamedPattern ...]>
+
+  ; [a b c ...] ----> <tuplePrefix [<ref a> <ref b>] <seqof <ref c>>>
+  ; TODO: [@fixed0 NamedPattern @fixedN NamedPattern ...]
+  / <tuplePrefix @fixed [NamedPattern ...] @variable NamedSimplePattern>
+
+  ; {a: b, c: d} ----> <dict {a: <ref b>, c: <ref d>}>
+  / <dict @entries DictionaryEntries>
+.
+
+DictionaryEntries = { any: NamedSimplePattern ...:... }.
+
+AtomKind = =Boolean / =Float / =Double / =SignedInteger / =String / =ByteString / =Symbol .
+
+NamedAlternative = [@variantLabel string @pattern Pattern].
+
+NamedSimplePattern = @named Binding / @anonymous SimplePattern .
+NamedPattern = @named Binding / @anonymous Pattern .
+
+Binding = <named @name symbol @pattern SimplePattern>.
+
+Ref = <ref @module ModulePath @name symbol>.
+ModulePath = [symbol ...].
