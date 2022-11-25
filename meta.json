@@ -980,7 +980,7 @@
     },
     {
       "name": "preserves",
-      "version": "20221106",
+      "version": "20221120",
       "author": "Emery Hemingway",
       "desc": "data model and serialization format",
       "license": "Unlicense",
